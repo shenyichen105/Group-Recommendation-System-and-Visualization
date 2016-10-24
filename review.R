@@ -1,6 +1,8 @@
-library(jsonlite)
+library(ndjson)
 json_file <- 'yelp_academic_dataset_review.json'
-dat <- fromJSON(sprintf("[%s]", paste(readLines(json_file), collapse=",")))
-subdat <- dat[c('business_id','stars','user_id')]
+dat<-ndjson::stream_in(json_file)
+subdat <- subset(dat,select = c("business_id", "stars", "user_id"))
+colnames(subdat)[1:3] = c("BusinessID", "Stars", "UserID")
 
-write.csv(business, file = "business.csv")
+
+write.csv(subdat, file = "review.csv")
