@@ -1,0 +1,62 @@
+<head>
+<title>6242project map</title>
+</head>
+<body>         
+<table class="bg_pink" border="0" cellpadding="0" cellspacing="10" width="690">
+  <tbody><tr>
+    <td width="690">
+    <head>
+<style>
+  #map_canvas { width: 600px; height: 500px; }
+</style>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+/*var map;
+var layer;
+var tableid = 628653;
+var layer2;
+var tableid2 = 1267529;*/
+function initialize() {
+  var user = {lat: 33.044438,  lng: -102.29578704833984375};
+  map = new google.maps.Map(document.getElementById('map_canvas'), {
+    center: new google.maps.LatLng(user.lat, user.lng),
+    zoom: 13,
+    //mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+  var style = [
+    {
+      featureType: 'all',
+      elementType: 'all',
+    }
+  ];
+  var styledMapType = new google.maps.StyledMapType(style, {
+    map: map,
+    name: '6242project Map'
+  });
+  
+  var marker = new google.maps.Marker({
+          position: user,
+          map: map
+        });
+  //map.mapTypes.set('map-style', styledMapType);
+ // map.setMapTypeId('map-style');
+  //layer = new google.maps.FusionTablesLayer(tableid);
+  //layer.setQuery("SELECT 'geometry' FROM " + tableid);
+  //layer.setMap(map);
+  //layer2 = new google.maps.FusionTablesLayer(tableid2);
+  //layer2.setQuery("SELECT 'Location details' FROM " + tableid2);
+  //layer2.setMap(map);
+}
+</script>
+</head>
+<body onload="initialize();">
+<div id="map_canvas"></div>
+</body>   
+</tbody></table>
+</html>
+
+
+
+
+
+

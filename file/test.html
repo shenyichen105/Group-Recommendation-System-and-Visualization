@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 80%;
+  }
+  td, th{
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+
+<html>
+<meta charset="utf-8">
+<title>Restaurant recommendation for Groups!</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.0/css/bootstrap-select.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.0/js/bootstrap-select.min.js"></script>
+
+
+<script>
+var usercount = 1;
+function myFunction2(){
+  usercount = usercount + 1;
+  var form = document.getElementById("userInput");
+  var label = document.createElement("label");
+  label.for = "title";
+  label.innerHTML = "User " + String(usercount) + String("&nbsp");
+  var input = document.createElement("input");
+  input.type = "text";
+  input.name = "user"+String(usercount);
+  var br = document.createElement("br");
+    form.appendChild(label);
+    form.appendChild(input);
+    form.appendChild(br);
+}
+</script>
+
+<script>
+var usercount = 1;
+function myFunction(){
+  var form = document.getElementById("userInput");
+  var input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = 'usercount';
+  input.value = usercount;
+  form.appendChild(input);
+}
+</script>
+
+<body>
+    <div class="container">
+        <div id="login-form">
+            <form class="form-horizontal" action="./hello.py" method="get" id="myForm">
+
+          <div class="form-group">
+            <h2>Test Page</h2>
+          </div>
+
+          <div class="form-group">
+                  <hr />
+          </div>
+            <div class="form-group">
+                <div class="col-xs-4" id = "userInput">
+                        <label for="title">User <script>document.write(usercount);</script></label>
+                        <input type="text" name="user1"><br>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-1">
+                  <button type="button" id="addName"  class="btn btn-info" onclick="myFunction2()">Add a new user</button>
+                </div>
+
+             <br><br>
+
+              <div class="col-xs-3">
+                <button type="submit" name="btn-filter" class="btn btn-primary" onclick="myFunction()">Submit</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+                    <hr />
+            </div>
+
+
+
+    </body>
+</html>
